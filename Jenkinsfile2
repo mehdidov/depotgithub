@@ -23,7 +23,7 @@ pipeline {
                 sh 'sudo apt autoremove docker.io docker-compose -y'
                 sh 'sudo apt-get update'
                 sh 'sudo apt-get update -y'
-                sh 'sudo apt-get install apt-transport-https ca-certificate curl software-properties-common -y'
+                sh 'sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y'
                 sh 'sudo apt-get install -y docker.io'
                 sh 'sudo systemctl start docker'
                 sh 'sudo systemctl enable docker'
