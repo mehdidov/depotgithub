@@ -25,7 +25,6 @@ pipeline {
         stage('Deploy application') {
             steps {
                 sh 'sudo docker run -d --name myapp -p 80:80 myapp-image'
-                sh 'sudo docker ps'
             }
         }
 
