@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
+        stage('Checkout SCM') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/mehdidov/depotgithub.git'
+            }
+        }
+
+        stage('Build image docker') {
+            steps {
+                sh 'sudo docker build -t myapp-image .'
+            }
+        }
+
+        stage('Deploy application') {
+            steps {
+                sh 'sudo docker run -d --name myapp -p 80:80 myapp-image'
+            }
+        }
+
+
+
+    }
+    
+}
