@@ -19,7 +19,7 @@ pipeline {
         stage ('Install Docker') {
             steps { 
 
-                sh ' sudo rm -f /etc/docker/daemon.json'
+                sh 'sudo rm -f /etc/docker/daemon.json'
                 sh 'sudo apt purge docker* -y'
                 
                 sh 'sudo apt autoremove docker.io docker-compose -y'
